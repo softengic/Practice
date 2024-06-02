@@ -1,0 +1,12 @@
+{
+  "name": "comp229-week02",
+  "version": "0.0.1",
+  "description": "demo project for COMP229 in the M2022",
+  "main": "server.js",
+  "repository": "''",
+  "author": "Irene",
+  "license": "MIT",
+  "dependencies": {
+    "mime-types": "^2.1.35"
+  }
+}
