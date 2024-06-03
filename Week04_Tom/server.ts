@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import app from './app';
+import app from './Server/Config/app';
 import debug from 'debug';
-debug('Week03_Tom:server');
+debug('Week04_Tom:server');
 import http from 'http';
 import { HttpError } from 'http-errors';
 
