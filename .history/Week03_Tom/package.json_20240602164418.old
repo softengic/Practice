@@ -1,0 +1,19 @@
+{
+  "name": "comp229-week02",
+  "version": "0.0.1",
+  "description": "demo project for COMP229 in the M2022",
+  
+  "main": "server.js",
+  "repository": "''",
+  "author": "Irene",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^20.13.0"
+  }
+}
