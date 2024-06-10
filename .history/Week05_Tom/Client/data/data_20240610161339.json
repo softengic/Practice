@@ -5,7 +5,7 @@
             "Name": "Star Wars",
             "Year": "1977",
             "Director": "George Lucas",
-            "Rating": "4.0 Stars"
+            "Rating": "4 Stars"
         },
         {
             "Name": "Spider-Man: No Way Home",
@@ -19,5 +19,6 @@
             "Director": "Dan Kwan",
             "Rating": "5.0 Stars"
         }
+
     ]
 }

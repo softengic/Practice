@@ -29,7 +29,7 @@ export function DisplayContactPage(req: express.Request, res: express.Response, 
 /**** temp *****/
 import Movies from '../Models/movie'; 
     
-export function DisplayMovieList(req: express.Request, res: express.Response, next: express.NextFunction)
+export async function DisplayMovieList(req: express.Request, res: express.Response, next: express.NextFunction)
 {
     Movies.find().exec()
         .then(movieCollection => {
@@ -40,4 +40,3 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
             res.status(500).send(err.message);
         });
 }
-Movies.find().exec()

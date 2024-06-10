@@ -18,5 +18,5 @@ const MovieSchema = new Schema
 //step 3: create a model using the Schema
 const Model = mongoose.model("Movies", MovieSchema);
 
-//step 4: export the model  => this makes the file a module
+//step 4: export the model
 export default Model;
