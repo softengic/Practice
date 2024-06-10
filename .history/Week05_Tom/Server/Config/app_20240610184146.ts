@@ -41,7 +41,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../Client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-// user routes
 app.use('/', indexRouter);
 app.use('/', movieListRouter);
 
