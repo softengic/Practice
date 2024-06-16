@@ -1,0 +1,21 @@
+//step 1: import mongoose
+import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
+
+//step 2: create a Schema that matches the data
+const UserSchema = new Schema
+    ({
+        DisplayName: String,
+        username: String,
+        EmailAddress: String,
+    },
+    {
+        collection: "users"
+    }
+);
+
+//step 3: create a model using the Schema
+const Model = mongoose.model("Users", UserSchema);
+
+//step 4: export the model  => this makes the file a module
+export default Model;
