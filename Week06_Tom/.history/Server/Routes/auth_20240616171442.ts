@@ -1,0 +1,23 @@
+import express from 'express';
+const router = express.Router();
+
+// import the controller module
+import { DisplayLoginPage, DisplayRegisterPage, ProcessLoginPage, ProcessRegisterPage, ProcessLogoutPage } from "../Controllers/auth";
+
+/* Display home page. */
+router.get('/', DisplayLoginPage);
+router.get('/home', DisplayLoginPage);
+
+/* Display about page. */
+router.get('/about', DisplayRegisterPage);
+
+/* Display projects page. */
+router.get('/projects', ProcessLoginPage);
+
+/* Display services page. */
+router.get('/services', ProcessRegisterPage);
+
+/* Display contact page. */
+router.get('/contact', ProcessLogoutPage);
+
+export default router;
