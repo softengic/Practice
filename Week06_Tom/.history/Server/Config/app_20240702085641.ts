@@ -77,8 +77,11 @@ app.use(passport.session());
 passport.use(User.createStrategy());
 
 // Step 8: for auth, setup User serialization and deserialization (encoding and decoding)
-passport.serializeUser(User.serializeUser()as (user: any, done: (err: any, id?: any) => void) => void);
+passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// Step 9: implement an Auth Strategy
+
 
 // user routes
 app.use('/', indexRouter);

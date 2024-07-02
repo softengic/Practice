@@ -5,7 +5,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 
 // import db package mongoose
-import mongoose from 'mongoose';
+import mongoose { Document, Model } from 'mongoose';
 
 // Step 1: for auth, import modules
 import session from 'express-session';
@@ -77,7 +77,7 @@ app.use(passport.session());
 passport.use(User.createStrategy());
 
 // Step 8: for auth, setup User serialization and deserialization (encoding and decoding)
-passport.serializeUser(User.serializeUser()as (user: any, done: (err: any, id?: any) => void) => void);
+passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // user routes
