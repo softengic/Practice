@@ -3,7 +3,6 @@ const router = express.Router();
 
 // import the controller module
 import { DisplayHomePage, DisplayAboutPage, DisplayProjectsPage, DisplayServicesPage, DisplayContactPage } from "../Controllers/index";
-import { DisplayLoginPage, DisplayRegisterPage } from '../Controllers/auth';
 
 /* Display home page. */
 router.get('/', DisplayHomePage);
@@ -20,11 +19,5 @@ router.get('/services', DisplayServicesPage);
 
 /* Display contact page. */
 router.get('/contact', DisplayContactPage);
-
-/* Display contact page. */
-router.get('/login', DisplayLoginPage);
-
-/* Display contact page. */
-router.get('/register', DisplayRegisterPage);
 
 export default router;
