@@ -3,17 +3,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = exports.DisplayRegisterPage = exports.DisplayLoginPage = void 0;
+exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.ProcessLoginPage = exports.DisplayLogoutPage = exports.DisplayRegisterPage = exports.DisplayLoginPage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 function DisplayLoginPage(req, res, next) {
-    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: 'a' });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: '' });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplayRegisterPage(req, res, next) {
-    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: 'a' });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: '' });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
+function DisplayLogoutPage(req, res, next) {
+    res.render('index', { title: 'Logout', page: 'logout', messages: req.flash('logoutMessage'), displayName: '' });
+}
+exports.DisplayLogoutPage = DisplayLogoutPage;
 function ProcessLoginPage(req, res, next) {
     passport_1.default.authenticate('local', function (err, user, info) {
         if (err) {
@@ -59,12 +63,14 @@ function ProcessRegisterPage(req, res, next) {
 }
 exports.ProcessRegisterPage = ProcessRegisterPage;
 function ProcessLogoutPage(req, res, next) {
-    req.logOut((err) => {
+    req.logOut(function (err) {
         if (err) {
-            return next(err);
+            console.error(err);
+            res.end(err);
         }
-        res.redirect('/login');
+        console.log("User logged Out.");
     });
+    res.redirect('/login');
 }
 exports.ProcessLogoutPage = ProcessLogoutPage;
 //# sourceMappingURL=auth.js.map

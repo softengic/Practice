@@ -22,7 +22,7 @@
             <a class="nav-link <%= (page == 'contact') ? 'active' : ''; %>" aria-current="page" href="/contact"><i class="fa-solid fa-address-book"></i> Contact</a>
           </li>
         
-          <% if(displayName != '') { %>
+          <% if(displayName = '') { %>
             <li class="nav-item">
                 <a class="nav-link <%= (page == 'movie-list') ? 'active' : ''; %>" aria-current="page" href="/movie-list"><i class="fa-solid fa-video"></i> Movie List</a>
             </li> 

@@ -9,17 +9,17 @@ import User from '../Models/user';
 // Display Functions
 export function DisplayLoginPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: '' });
+    res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: 'a' });
 }
 
 export function DisplayRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: '' });
+    res.render('index', { title: 'Register', page: 'register', messages: req.flash('registerMessage'), displayName: 'a' });
 }
 
 export function DisplayLogoutPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    res.render('index', { title: 'Logout', page: 'logout', messages: req.flash('logoutMessage'), displayName: '' });
+    res.render('index', { title: 'Logout', page: 'logout', messages: req.flash('logoutMessage'), displayName: 'a' });
 }
 
 // Processing Functions
@@ -89,15 +89,11 @@ export function ProcessRegisterPage(req: express.Request, res: express.Response,
 
 export function ProcessLogoutPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    req.logOut(function (err)
-    {
+    req.logOut((err: any) => {
         if (err)
         {
-            console.error(err);
-            res.end(err);
+            return next(err);
         }
-        console.log("User logged Out.")
+        res.redirect('/login');
     });
-    
-    res.redirect('/login');
 }

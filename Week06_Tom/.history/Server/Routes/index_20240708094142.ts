@@ -27,4 +27,7 @@ router.get('/login', DisplayLoginPage);
 /* Display register page. */
 router.get('/register', DisplayRegisterPage);
 
+/* Display logout page. */
+router.get('/logout', DisplayLogoutPage);
+
 export default router;

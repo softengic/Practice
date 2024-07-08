@@ -3,7 +3,7 @@ const router = express.Router();
 
 // import the controller module
 import { DisplayHomePage, DisplayAboutPage, DisplayProjectsPage, DisplayServicesPage, DisplayContactPage } from "../Controllers/index";
-import { DisplayLoginPage, DisplayRegisterPage, DisplayLogoutPage} from '../Controllers/auth';
+import { DisplayLoginPage, DisplayRegisterPage } from '../Controllers/auth';
 
 /* Display home page. */
 router.get('/', DisplayHomePage);
@@ -26,5 +26,8 @@ router.get('/login', DisplayLoginPage);
 
 /* Display register page. */
 router.get('/register', DisplayRegisterPage);
+
+/* Display logout page. */
+router.get('/logout', DisplayRegisterPage);
 
 export default router;
