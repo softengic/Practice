@@ -34,15 +34,20 @@ export function ProcessLoginPage(req: express.Request, res: express.Response, ne
         }
 
         //no problems - i.e. good user name and password
-        req.logIn(user, function (err) {
+        req.logIn(user, function (err)
+        {
             // are there db errors?
-            if (err) {
+            if (err)
+            {
                 console.error(err);
                 res.end(err);
             }
-            return res.redirect('movie-list');
-        });        
-    }) (req, res, next);
+
+        }
+
+        return res.redirect('movie-list');
+    }
+    })
 }
 
 export function ProcessRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction)

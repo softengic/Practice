@@ -20,29 +20,21 @@ export function DisplayRegisterPage(req: express.Request, res: express.Response,
 // Processing Functions
 export function ProcessLoginPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    passport.authenticate('local', function (err: any, user: any, info: any) {
+    passport.authenticate('local', function (err: any, user: any, info: any)
+    {
         //are there server errors? 
-        if (err) {
+        if (err)
+        {
             console.error(err);
             res.end(err);
         }
 
         //are there login errors?
-        if (!user) {
+        if (!user)
+        {
             req.flash('loginMessage', 'Authentication Error!');
-            return res.redirect('login');
         }
-
-        //no problems - i.e. good user name and password
-        req.logIn(user, function (err) {
-            // are there db errors?
-            if (err) {
-                console.error(err);
-                res.end(err);
-            }
-            return res.redirect('movie-list');
-        });        
-    }) (req, res, next);
+    })
 }
 
 export function ProcessRegisterPage(req: express.Request, res: express.Response, next: express.NextFunction)
