@@ -7,8 +7,8 @@ exports.DisplayMovieList = void 0;
 const movie_1 = __importDefault(require("../Models/movie"));
 function DisplayMovieList(req, res, next) {
     movie_1.default.find().exec()
-        .then(movieCollection => {
-        res.render('index', { title: 'Movie List', page: 'movie-list', movies: movieCollection });
+        .then(moviesCollection => {
+        res.render('index', { title: 'Movie List', page: 'movie-list', displayName: 'a', movies: moviesCollection });
     })
         .catch(err => {
         console.error(err);
