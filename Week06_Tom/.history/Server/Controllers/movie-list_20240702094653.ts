@@ -1,12 +1,11 @@
 import express from 'express';
 import Movie from '../Models/movie'; 
-import moviesCollection from '../Models/movie'; 
-
+    
 export function DisplayMovieList(req: express.Request, res: express.Response, next: express.NextFunction)
 {
     Movie.find().exec()
-        .then(moviesCollection => {
-            res.render('index', { title: 'Movie List', page: 'movie-list', displayName: 'a' , movies: moviesCollection});
+        .then(movieCollection => {
+            res.render('index', { title: 'Movie List', page: 'movie-list', movies: movieCollection, displayName: '' });
         })
         .catch(err => {
             console.error(err);

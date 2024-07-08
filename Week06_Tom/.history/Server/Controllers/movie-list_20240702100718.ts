@@ -6,7 +6,7 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
 {
     Movie.find().exec()
         .then(moviesCollection => {
-            res.render('index', { title: 'Movie List', page: 'movie-list', displayName: 'a' , movies: moviesCollection});
+            res.render('index', { title: 'Movie List', page: 'movielist', movies: moviesCollection, displayName: '' });
         })
         .catch(err => {
             console.error(err);

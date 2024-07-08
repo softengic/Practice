@@ -21,10 +21,13 @@ router.get('/services', DisplayServicesPage);
 /* Display contact page. */
 router.get('/contact', DisplayContactPage);
 
-/* Display login page. */
+/* Display contact page. */
+router.get('/movielist', DisplayLoginPage);
+
+/* Display contact page. */
 router.get('/login', DisplayLoginPage);
 
-/* Display register page. */
+/* Display contact page. */
 router.get('/register', DisplayRegisterPage);
 
 export default router;
