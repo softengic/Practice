@@ -69,26 +69,11 @@ export function ProcessRegisterPage(req: express.Request, res: express.Response,
                 console.error(err.name); // other error
                 req.flash('registerMessage', 'Server Error');
             }
-            return res.redirect('/register');
         }
-
-        //everything is ok - user has been registered
-
-        //automatically login the user
-        return passport.authenticate('local')(req, res, function ()
-        {
-            return res.redirect('/movie-list');
-        })
-    })
+})
 }
 
 export function ProcessLogoutPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
-    req.logOut((err: any) => {
-        if (err)
-        {
-            return next(err);
-        }
-        res.redirect('/login');
-    });
+
 }
