@@ -1,0 +1,11 @@
+[build]
+  publish = "build" # Adjust this to your frontend build output directory
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  directory = "functions"
