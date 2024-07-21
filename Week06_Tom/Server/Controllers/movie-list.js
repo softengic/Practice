@@ -21,7 +21,16 @@ function DisplayAddPage(req, res, next) {
     res.render('index', { title: 'Add', page: 'edit', movie: '', displayName: (0, Util_1.UserDisplayName)(req) });
 }
 exports.DisplayAddPage = DisplayAddPage;
-function DisplayEditPage(req, res, next) {
+async function DisplayEditPage(req, res, next) {
+    try {
+        let id = req.params.id;
+        let movieToEdit = await movie_1.default.findById(id).exec();
+        res.render('index', { title: 'Edit', page: 'edit', movie: movieToEdit, displayName: (0, Util_1.UserDisplayName)(req) });
+    }
+    catch (err) {
+        console.error(err);
+        res.end(err);
+    }
 }
 exports.DisplayEditPage = DisplayEditPage;
 function ProcessAddPage(req, res, next) {

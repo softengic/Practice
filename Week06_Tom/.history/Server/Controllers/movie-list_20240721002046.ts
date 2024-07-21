@@ -20,21 +20,10 @@ export function DisplayAddPage(req: express.Request, res: express.Response, next
     res.render('index', { title: 'Add', page: 'edit', movie: '', displayName: UserDisplayName(req) })
 }
 
-export async function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): Promise<void>
+export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
 {
-    try
-    {
-        let id = req.params.id;
-        let movieToEdit = await Movie.findById(id).exec();
-
-        // pass the id to the db and read the movie into the edit page
-        res.render('index', { title: 'Edit', page: 'edit', movie: movieToEdit, displayName: UserDisplayName(req) })
-    }
-    catch (err)
-    {
-        console.error(err);
-        res.end(err);
-    }
+    let id = req.params.d;
+    
 }
 
 export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void

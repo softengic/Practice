@@ -22,19 +22,23 @@ export function DisplayAddPage(req: express.Request, res: express.Response, next
 
 export async function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): Promise<void>
 {
-    try
-    {
-        let id = req.params.id;
-        let movieToEdit = await Movie.findById(id).exec();
+    let id = req.params.id;
+    
+    let movieToEdit = await Movie.findById(id).exec();
 
-        // pass the id to the db and read the movie into the edit page
-        res.render('index', { title: 'Edit', page: 'edit', movie: movieToEdit, displayName: UserDisplayName(req) })
-    }
-    catch (err)
+    // pass the id to the db and read the movie into the edit page
+    Movie.findById(id, {}, function(err: any, movieToEdit: any)
     {
-        console.error(err);
-        res.end(err);
-    }
+        if (err)
+        {
+            console.error(err);
+            res.end(err);
+        }
+
+        // Show the edit view with the data
+        res.render('index', { title: 'Edit', page: 'edit', movie: movieToEdit, displayName: UserDisplayName(req) })
+    });
+
 }
 
 export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
