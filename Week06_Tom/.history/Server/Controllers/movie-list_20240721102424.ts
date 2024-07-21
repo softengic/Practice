@@ -100,6 +100,7 @@ export async function ProcessDeletePage(req: express.Request, res: express.Respo
 
         // pass the id to the database and delete the movie
         await Movie.deleteOne({ _id: id });
+
     }
     catch (err)
     {

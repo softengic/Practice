@@ -69,7 +69,16 @@ async function ProcessEditPage(req, res, next) {
     }
 }
 exports.ProcessEditPage = ProcessEditPage;
-function ProcessDeletePage(req, res, next) {
+async function ProcessDeletePage(req, res, next) {
+    try {
+        let id = req.params.id;
+        await movie_1.default.deleteOne({ _id: id });
+    }
+    catch (err) {
+        console.error(err);
+        res.end(err);
+    }
+    res.redirect('/movie-list');
 }
 exports.ProcessDeletePage = ProcessDeletePage;
 movie_1.default.find().exec();
