@@ -37,33 +37,22 @@ export async function DisplayEditPage(req: express.Request, res: express.Respons
     }
 }
 
-export async function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction)
+export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
 {
-    try
-    {
-        // instantiate a new Movie to Add
-        let newMovie = new Movie
-            ({
-                "Name": req.body.movieName,
-                "Director": req.body.movieDirector,
-                "Year": req.body.movieYear,
-                "Rating": req.body.movieRating
-            });
+    //instantiate a new Movie to Add
+    let newMovie = new Movie
+    ({
+        "Name": req.body.movieName,
+        "Director": req.body.movieDirector,
+        "Year": req.body.movieYear,
+        "Rating": req.body.movieRating
+    })
     
-        // insert the new Movie object into the db (movie collection)
-        await Movie.create(newMovie)
-    
-        //new movie has been added -> refresh the movie-list
-        res.redirect('/movie-list');
-    } 
-    catch(err)
-    {
-        console.error(err);
-        res.end(err);
-    }
+    // insert the new Movie object into the db (movie collection)
+
 }
 
-export  function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+export function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
 {
 
     
