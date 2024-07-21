@@ -15,34 +15,30 @@ export function DisplayMovieList(req: express.Request, res: express.Response, ne
         });
 }
 
-export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+export function DisplayAddPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
 
 
 }
 
-export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
-{
-
-    
-}
-
-export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+export function DisplayEditPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
 
     
 }
 
-export function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction): void
+export function ProcessAddPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
 
     
 }
 
-export function ProcessDeletePage(req: express.Request, res: express.Response, next: express.NextFunction): void
+export function ProcessEditPage(req: express.Request, res: express.Response, next: express.NextFunction)
 {
 
     
 }
+
+
 
 Movie.find().exec()
