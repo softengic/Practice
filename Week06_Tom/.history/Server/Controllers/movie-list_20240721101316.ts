@@ -67,24 +67,8 @@ export async function ProcessEditPage(req: express.Request, res: express.Respons
 {
     try
     {
-        let id = req.params.id;
 
-        // calling the movie to edit
-        let updatedMovie = new Movie
-        ({
-            "_id": id,
-            "Name": req.body.movieName,
-            "Director": req.body.movieDirector,
-            "Year": req.body.movieYear,
-            "Rating": req.body.movieRating
-        });
-
-        // update the movie in the database
-        await Movie.updateOne({ _id: id }, updatedMovie);
-
-        // edit was successful -> go to the movie-list page
-        res.redirect('/movie-list');
-    }   
+    }
     catch (err)
     {
         console.error(err);

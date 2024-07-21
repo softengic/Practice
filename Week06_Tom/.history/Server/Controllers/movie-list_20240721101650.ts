@@ -79,11 +79,13 @@ export async function ProcessEditPage(req: express.Request, res: express.Respons
             "Rating": req.body.movieRating
         });
 
+        await Movie.create(updatedMovie)
+
         // update the movie in the database
-        await Movie.updateOne({ _id: id }, updatedMovie);
+        Movie.updateOne({ _id: id }, updatedMovie, function (err: ErrorCallback));
 
         // edit was successful -> go to the movie-list page
-        res.redirect('/movie-list');
+
     }   
     catch (err)
     {

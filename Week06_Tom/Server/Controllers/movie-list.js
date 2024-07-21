@@ -50,7 +50,23 @@ async function ProcessAddPage(req, res, next) {
     }
 }
 exports.ProcessAddPage = ProcessAddPage;
-function ProcessEditPage(req, res, next) {
+async function ProcessEditPage(req, res, next) {
+    try {
+        let id = req.params.id;
+        let updatedMovie = new movie_1.default({
+            "_id": id,
+            "Name": req.body.movieName,
+            "Director": req.body.movieDirector,
+            "Year": req.body.movieYear,
+            "Rating": req.body.movieRating
+        });
+        await movie_1.default.updateOne({ _id: id }, updatedMovie);
+        res.redirect('/movie-list');
+    }
+    catch (err) {
+        console.error(err);
+        res.end(err);
+    }
 }
 exports.ProcessEditPage = ProcessEditPage;
 function ProcessDeletePage(req, res, next) {
